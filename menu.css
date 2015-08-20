@@ -1,0 +1,20 @@
+
+.form-group {
+  margin:8px;
+}
+
+body {
+  font-size: 18px;
+  margin:0px;
+  font-family: 'Roboto';
+
+}
+
+form {
+  margin:30px;
+}
+input {
+  border: 3px solid #E6E6E6;
+  border-style: solid;
+  padding: 6px;
+}
