@@ -9,29 +9,22 @@ var infectorSingletonInstance = (function() {
 
   var _formData = '';
 
+  var _lastRequestId = -1;
+
   /**
   * Private method that contains the logic for http listening
   *
   * @param {Object} details  contains information about the current request
   * @private
   **/
-  function _webRequestListner(details) {
-        console.log("internal invocation");
-        // default url value to return should be the origin url
-        var urlToReturn = details.url;
-
-        // check if we need to change the url some how
-        if(details.url.indexOf(_formData.urlsToTriggerOn) > -1) {
-
-            // create a new string where we replace part of url
-             urlToReturn = details.url.replace(_formData.urlReplacePattern, _formData.urlReplaceContent);
-
+  function _webRequestListner(request) {
+        console.log(request)
+        if(request.requestId !== _lastRequestId && (request.url.indexOf(_formData.urlsToTriggerOn)) > -1 ){
+            _lastRequestId = request.requestId;
+            return {
+                redirectUrl : request.url.replace(_formData.urlReplacePattern, _formData.urlReplaceContent)
+            };
         }
-        return {
-
-            redirectUrl: urlToReturn
-
-        };
   }
   // public methods
   return {
@@ -44,10 +37,9 @@ var infectorSingletonInstance = (function() {
       // copy formData to private formData so we can access it in the webRequestListner
       _formData = formData;
 
-      // make sure that we remove the old listner if possible
-      if(_webRequestListner) {
-        stopInfectingTrafic();
-      }
+        // make sure that we remove the old listner if possible
+        this.stopInfectingTrafic();
+
 
       // add the listner with a named method, so that we can remove it later
       chrome.webRequest.onBeforeRequest.addListener(_webRequestListner, {
