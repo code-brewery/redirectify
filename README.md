@@ -1,4 +1,6 @@
+![alt tag](https://raw.github.com/code-brewery/redirectify/master/icon.png) 
 # redirectify
+
 Redirectify is a chrome plugin that redirects http trafic where you want it. 
 
 ### Why?
