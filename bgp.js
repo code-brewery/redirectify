@@ -11,6 +11,9 @@ var infectorSingletonInstance = (function() {
 
   var _lastRequestId = -1;
 
+  // tells us that the infector is listening or not
+  var _active = false;
+
   /**
   * Private method that contains the logic for http listening
   *
@@ -46,6 +49,7 @@ var infectorSingletonInstance = (function() {
           urls: ["http://*/*"]
       }, ["blocking"]); // Block intercepted requests until this handler has finished
 
+      _active = true;
     },
 
     /**
@@ -54,6 +58,12 @@ var infectorSingletonInstance = (function() {
     stopInfectingTrafic: function () {
         // unregister the listner , private method as key
         chrome.webRequest.onBeforeRequest.removeListener(_webRequestListner);
+
+        _active = false;
+    },
+
+    isActive:function() {
+        return _active;
     }
   };
 })();

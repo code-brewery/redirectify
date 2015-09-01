@@ -69,8 +69,26 @@ function populateFormWithFormData() {
   });
 
 }
+/**
+* This methods sets the current state.
+* if the infector is active, then "active" will be printed.
+* if the infector is in-active then "in-active" will be printed.
+**/
+function setState() {
+    // get the infector
+    var otherWindows = chrome.extension.getBackgroundPage();
+    var singletonInstance = otherWindows.infectorSingletonInstance;
 
 
+    var stateInHumanReadableFormat = "The extension is disabled";
+    // ask the infector the current state
+    if(singletonInstance.isActive()) {
+        stateInHumanReadableFormat = "The extension is enabled";
+    }
+
+    // set the state in the widget
+    document.getElementById('stateIndicator').innerHTML = stateInHumanReadableFormat;
+}
 
 /**
 * On page load
@@ -82,19 +100,21 @@ function populateFormWithFormData() {
 document.addEventListener('DOMContentLoaded', function() {
 
   populateFormWithFormData();
+  setState();
 
   // when the user clicks on the submit button
   document.getElementById("submit-url-values").addEventListener("click", function() {
 
       registerListners.call(this);
       saveTheFormData.call(this);
-
+      setState.call(this);
   }.bind(this));
 
   // when the user clicks on the disable button
   document.getElementById("disable").addEventListener("click", function() {
 
       unRegisterListner.call(this);
+      setState.call(this);
 
   }.bind(this));
 
