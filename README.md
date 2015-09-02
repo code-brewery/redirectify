@@ -1,5 +1,4 @@
-![alt tag](https://raw.github.com/code-brewery/redirectify/master/icon.png)
-
+![alt tag](https://raw.github.com/code-brewery/redirectify/master/redirectifyInAction.png)
 # Redirectify
 
 Redirectify is a chrome plugin that redirects http trafic where you want it.
@@ -17,21 +16,20 @@ Well, i wanted a easy way to redirect for api trafic during development. I wante
   In this example we will redirect the requests to my live server running on ```localhost:1337/rest/```.
 
   The final configuration in the redirectify gui will be the following:
-
-  ##### config
+##### config
   
     Urls: to trigger on = localhost:8585/rest
     Replace the following = localhost:8585/rest
     With = localhost:1337/rest
 
-  ## How to install
-  1. Download as an zip archive here at this github page
-  2. Unzip to a good location
+## How to install
+1. Download as an zip archive here at this github page
+2. Unzip to a good location
 
-  3. Open a new tab in chrome, type ```chrome://extensions```
+3. Open a new tab in chrome, type ```chrome://extensions```
 
-  4. Check on Developer mode
+4. Check on Developer mode
 
-  5. Click on Load unpacked extension
+5. Click on Load unpacked extension
 
-  6. Upload the folder containing Redirectify.
+6. Upload the folder containing Redirectify.
