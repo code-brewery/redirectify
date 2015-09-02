@@ -33,3 +33,6 @@ Well, i wanted a easy way to redirect for api trafic during development. I wante
 5. Click on Load unpacked extension
 
 6. Upload the folder containing Redirectify.
+
+## License
+This library is licensed under the MIT license. Please see [License file](LICENSE.md) for more information.
