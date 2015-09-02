@@ -8,15 +8,36 @@ body {
   margin:0px;
   font-family: 'Source Sans Pro', sans-serif;
   color: #00B300;
+
 }
 
+.divider {
+  border-top: 1px solid #d9dadc;
+  display: block;
+  line-height: 1px;
+  margin: 15px 0;
+  position: relative;
+  text-align: center;
+}
+label {
+  color: #69AF82;
+    text-decoration: none;
+    font-weight: 200;
+    /* font-family: Circular,Helvetica,Arial,sans-serif; */
+    font-size: 16px;
+    line-height: 1.5;
+}
 form {
       margin: 0px 30px 30px 30px;
 }
 input {
-  border:4px solid #DAE8D5;
-  border-style: solid;
-  padding: 6px;
+  padding-left: 7px;
+  color: #2e2f33;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #d9dadc;
+  border-radius: 0;
+  height: 32px;
 }
 #stateIndicator {
   text-align: center;
@@ -30,7 +51,7 @@ input {
 
 	background-color: #4D7B48;
 	border: 1px solid #80CE76;
-	display:inline-block;
+	text-align: center;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
@@ -46,4 +67,7 @@ input {
 .myButton:active {
 	position:relative;
 	top:1px;
+}
+.buttonHolder{
+    text-align: center;
 }
